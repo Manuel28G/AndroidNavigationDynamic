@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import com.manuel28g.navigationdynamic.R
 
 class DashboardFragment : Fragment() {
@@ -26,6 +27,9 @@ class DashboardFragment : Fragment() {
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
+        textView.setOnClickListener {
+            findNavController().navigate(R.id.navigation_dashboard_notifications)
+        }
         return root
     }
 }
